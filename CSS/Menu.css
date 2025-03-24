@@ -1,0 +1,44 @@
+:root{
+    --color--barra:#CDD6F4;
+
+    --color--texto:rgb(0,0,0);
+    --color--texto--menu:rgb(0,0,0);
+
+    --color--botones:rgb(0,0,0);
+    --color--botones--textos:rgb(0,0,0);
+}
+
+/*Estilos del menu deesplegado*/
+.menu-desplegable{
+    width: 250px;
+    height:729px;
+    padding: 20px 15px;
+    background-color: var(--color--barra);
+    
+}
+
+.menu-desplegable .icono{
+    border: 5px solid red;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-desplegable .icono ion-icon{
+    border: 2px solid darkblue;
+    min-width: 50px;
+    font-size: 40px;
+}
+
+.menu-desplegable .icono span{
+    border: 2px solid green;
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+/*Estilos del menu recogido*/
+
+.Reducir-menu{
+    width: 80px;
+}
