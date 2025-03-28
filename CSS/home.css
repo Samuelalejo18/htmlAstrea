@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.main_container {
+  width: 80%;
+  margin: 8rem auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+.option img {
+  width: 120px;
+  height: auto;
+  border-radius: 15px;
+}
+
+.option.niveles {
+  background: #ef9f76;
+  box-shadow: 0px 6px 2px rgba(254, 100, 11, 0.8);
+  transition: background-color 0.3s ease;
+}
+
+.option.juegos {
+  background: #81c8be;
+  box-shadow: 0px 6px 2px rgba(23, 146, 153, 0.8);
+}
+
+.option.perfil {
+  background: #babbf1;
+  box-shadow: 0px 6px 2px rgba(114, 135, 253, 0.8);
+}
+
+.option.logros{
+  background: #8caaee;
+  box-shadow: 0px 6px 2px rgba(30, 102, 245, 0.8);
+}
+
+.option.evaluaciones {
+  background: #eebebe;
+  box-shadow: 0px 6px 2px rgba(221, 120, 120, 0.8);
+}
+
+.option.niveles:hover {
+  background: #fab387;
+}
+
+.option.juegos:hover {
+  background: #94e2d5;
+}
+
+.option.perfil:hover {
+  background: #b4befe;
+}
+
+.option.logros:hover {
+  background: #89b4fa;
+}
+
+.option.evaluaciones:hover {
+  background: #eba0ac;
+}

@@ -1,15 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Astrea</title>
-    <link href="CSS/Menu.css" rel="stylesheet">
-    <link href="CSS/style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astrea | Home</title>
+    <link rel="stylesheet" href="CSS/Menu.css" />
+    <link rel="stylesheet" href="CSS/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </head>
   <body>
-    <div id="container">
+    <main class="main_container">
+      <!--Inicio de menu y barra lateral-->
+      <header>
+        <div class="left">
+          <div class="brand">
+            <img
+              src="imagenes/Logo-Astrea.png"
+              alt="icon-astrea"
+              class="logo"
+            />
+            <span class="name">Astrea Education</span>
+          </div>
+        </div>
 
-    </div>
+        <div class="right">
+          <a href="Main.html" class="icons-header"
+            ><img src="imagenes/home.svg" alt="inicio" />
+          </a>
+          |
+          <div class="buscar">
+            <input type="text" placeholder="Buscar" required />
+
+            <div class="btn">
+              <i class="fas fa-search icon"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!--Termina de menu y barra lateral-->
+
+      <!--Inicia botones-->
+      <a href="Main.html" class="option niveles">
+        <img src="" alt="Niveles de aprendizaje">
+        <span>Niveles de aprendizaje</span>
+      </a>
+
+      <a href="Main.html" class="option juegos">
+        <img src="" alt="Juegos Interactivos">
+        <span>Juegos Interactivos</span>
+      </a>
+
+      <a href="perfilUsuario.html" class="option perfil">
+        <img src="" alt="Perfil de Usuario">
+        <span>Perfil de Usuario</span>
+      </a>
+
+      <a href="Main.html" class="option logros">
+        <img src="" alt="Logros del Usuario">
+        <span>Logros</span>
+      </a>
+
+      <a href="Main.html" class="option evaluaciones">
+        <img src="" alt="Evaluaciones para usuario">
+        <span>Evaluaciones</span>
+      </a>
+    </main>
   </body>
 </html>
