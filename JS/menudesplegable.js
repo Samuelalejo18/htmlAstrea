@@ -1,7 +1,8 @@
-const Barras= document.getElementById("barras-lat");
+const menu=document.getElementById("menu");
+const sidebar=document.getElementById("sidebar");
+const main=document.getElementById("main");
 
-const BarraReducida=document.querySelector(".menu-desplegable");
-
-Barras.addEventListener("click",()=>{
-    BarraReducida.classList.toggle('Reducir-menu');
+menu.addEventListener("click",()=>{
+    sidebar.classList.toggle("menu-toggle");
+    main.classList.toggle("menu-toggle");
 });

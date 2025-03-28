@@ -1,11 +1,19 @@
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body{
-    height: 100vh;
-    width: 100%;
+
+
+main{
+    margin-top: 4.6rem;
+    margin-left:4rem ;
+    padding: 2rem;
+    transition:1s ease;
 }
 
+main.menu-toggle{
+    margin-left: 14.75rem;
+}
