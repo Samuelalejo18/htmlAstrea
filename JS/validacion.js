@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (formValid) {
-            alert("Iniciar sesión exitoso.");
+            window.location.href = "home.html";
         }
     });
 
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (formValid) {
-            alert("Registro exitoso.");
+            window.location.href = "home.html";
         }
     });
 

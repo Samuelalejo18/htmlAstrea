@@ -13,34 +13,87 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="CSS/estilosPeril.css">
     <link rel="stylesheet" href="CSS/Menu.css">
+    <link rel="stylesheet" href="CSS/Estilosmain.css">
 </head>
 
 <body>
+    <style>
+        body{
+            background: rgb(197,184,228);
+            background: linear-gradient(90deg, rgba(197,184,228,0.958420868347339) 0%, rgba(169,139,189,0.804359243697479) 35%, rgba(236,160,255,1) 100%);
+        }
+    </style>
 
-    <header>
-        <div class="left">
-            <div class="menu-container">
-                <div class="menu" id="menu">
-                    <div>
-                        <ion-icon name="menu-outline"></ion-icon>
-                    </div>
-                </div>
-            </div>
-
-            <div class="brand">
-                    <img src="imagenes/Logo-Astrea.png" alt="icon-udemy" class="logo">
-                    <span class="name">Astrea Education</span>
-            </div>
-
+<header>
+    <div class="left">
+      <div class="menu-container">
+        <div class="menu" id="menu">
+          <div>
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
         </div>
+      </div>
 
-        <div class="right">
-            <a href="" class="icons-header"><img src="imagenes/question.svg" alt="preguntas"></a>
-            <a href="" class="icons-header"><img src="imagenes/notification.svg" alt="notificaciones"></a>
+      <div class="brand">
+        <img src="imagenes/Logo-Astrea.png" alt="icon-udemy" class="logo" />
+        <span class="name">Astrea Education</span>
+      </div>
+    </div>
 
+    <div class="right">
+      <div class="buscar">
+        <input type="text" placeholder="Buscar" required />
+
+        <div class="btn">
+          <i class="fas fa-search icon"></i>
         </div>
-    </header>
+      </div>
+      <a href="" class="icons-header" ><img src="imagenes/question.svg" alt="preguntas" /></a>
+      <a href="" class="icons-header" ><img src="imagenes/notification.svg" alt="notificaciones" /></a>
+    </div>
+  </header>
 
+  <!--Barra lateral-->
+  <div class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li>
+          <a href="home.html" class="selected">
+            <img src="imagenes/home.svg" class="" alt="" />
+            <span>Pagina de inicio</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="Inicio.html">
+            <img src="imagenes/search.svg" alt="" />
+            <span>Evaluaciones</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="Inicio.html">
+            <img src="imagenes/search.svg" alt="" />
+            <span>Juegos</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="Logros.html" class="">
+            <img src="imagenes/search.svg" alt="" />
+            <span>Logros</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="Main.html" class="">
+            <img src="imagenes/search.svg" alt="" />
+            <span>Cerrar sesion</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
 
     <section class="seccion-perfil-usuario">
@@ -48,16 +101,15 @@
             <div class="perfil-usuario-portada">
                 <div class="perfil-usuario-avatar">
                     <img src="imagenes/usuario.png" alt="img-avatar">
-                    <!-- Se elimina el botón de editar la imagen -->
+
                 </div>
-                <!-- Se elimina el botón de cambiar fondo -->
+
             </div>
         </div>
     
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
                 <h3 class="titulo">Maria Alejandra De la Cruz</h3>
-                <!-- Bio editable con textarea -->
                 <textarea class="bio-edit" placeholder="Escribe tu bio...">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
             </div>
     
@@ -109,6 +161,7 @@
     
 
     <script src="JS/validacion.js"></script>
+    <script src="JS/menudesplegable.js"></script>
 
 </body>
 

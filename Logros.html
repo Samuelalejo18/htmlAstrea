@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Logros</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" ></script>
+    <link rel="stylesheet" href="CSS//Estilosmain.css" />
+    <link rel="stylesheet" href="CSS//Menu.css" />
+    <link rel="stylesheet" href="CSS/logros.css">
+</head>
+<body>
+       <!--Inicio de menu y barra lateral-->
+
+       <header>
+        <div class="left">
+          <div class="menu-container">
+            <div class="menu" id="menu">
+              <div>
+                <ion-icon name="menu-outline"></ion-icon>
+              </div>
+            </div>
+          </div>
+  
+          <div class="brand">
+            <img src="imagenes/Logo-Astrea.png" alt="icon-udemy" class="logo" />
+            <span class="name">Astrea Education</span>
+          </div>
+        </div>
+  
+        <div class="right">
+          <div class="buscar">
+            <input type="text" placeholder="Buscar" required />
+  
+            <div class="btn">
+              <i class="fas fa-search icon"></i>
+            </div>
+          </div>
+          <a href="" class="icons-header" ><img src="imagenes/question.svg" alt="preguntas" /></a>
+          <a href="" class="icons-header" ><img src="imagenes/notification.svg" alt="notificaciones" /></a>
+        </div>
+      </header>
+  
+      <!--Barra lateral-->
+      <div class="sidebar" id="sidebar">
+        <nav>
+          <ul>
+            <li>
+              <a href="home.html" class="selected">
+                <img src="imagenes/home.svg" class="" alt="" />
+                <span>Pagina de inicio</span>
+              </a>
+            </li>
+  
+            <li>
+              <a href="Inicio.html">
+                <img src="imagenes/search.svg" alt="" />
+                <span>Evaluaciones</span>
+              </a>
+            </li>
+  
+            <li>
+              <a href="Inicio.html">
+                <img src="imagenes/search.svg" alt="" />
+                <span>Juegos</span>
+              </a>
+            </li>
+  
+            <li>
+              <a href="perfilUsuario.html" class="">
+                <img src="imagenes/search.svg" alt="" />
+                <span>Perfil</span>
+              </a>
+            </li>
+
+            <li>
+                <a href="Main.html" class="">
+                  <img src="imagenes/search.svg" alt="" />
+                  <span>Cerrar sesion</span>
+                </a>
+              </li>
+          </ul>
+        </nav>
+      </div>
+  
+      <!--Fin de la barra de navegacion y menu-->
+
+    <!-- Generación de niveles y logros -->
+    <script>
+       for (let level = 1; level <= 6; level++) {
+            document.write(`<div class='level' id='level${level}'>`);
+            document.write(`<h2>Nivel ${level}</h2>`);
+            document.write(`<div class='achievements-container'>`);
+            
+            for (let ach = 1; ach <= 14; ach++) {
+                document.write(`
+                    <div class='achievement-wrapper'>
+                        <div class='achievement' id='lvl${level}-ach${ach}'>
+                            <img src='https://i.pinimg.com/originals/aa/b4/c2/aab4c2547fb01fcaa261b049a1b0045e.jpg' alt='Logro ${ach}'>
+                        </div>
+                        <button onclick="unlockAchievement('lvl${level}-ach${ach}')">Desbloquear</button>
+                    </div>
+                `);
+            }
+            
+            document.write(`</div>`);
+            document.write(`</div>`);
+        }
+    </script>
+
+
+<!--- Script de uso --->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script>
+<script src="JS/menudesplegable.js"></script>
+<script src="JS/logros.js"></script>
+</body>
+</html>

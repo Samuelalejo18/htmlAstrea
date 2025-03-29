@@ -13,7 +13,3 @@ main{
     padding: 2rem;
     transition:1s ease;
 }
-
-main.menu-toggle{
-    margin-left: 14.75rem;
-}
