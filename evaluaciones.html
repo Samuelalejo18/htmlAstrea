@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <link rel="stylesheet" href="CSS/Menu.css">
+    <link rel="stylesheet" href="CSS/Estilosmain.css">
+    <link rel="stylesheet" href="CSS/Estiloevaluaciones.css">
+
+    <title>Evaluaciones</title>
+</head>
+<body>
+
+           <!--Inicio de menu y barra lateral-->
+
+           <header>
+            <div class="left">
+              <div class="menu-container">
+                <div class="menu" id="menu">
+                  <div>
+                    <ion-icon name="menu-outline"></ion-icon>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="brand">
+                <img src="imagenes/Logo-Astrea.png" alt="icon-udemy" class="logo" />
+                <span class="name">Astrea Education</span>
+              </div>
+            </div>
+      
+            <div class="right">
+                <a href="" class="icons-header" ><img src="imagenes/home.svg" alt="preguntas" /></a>
+              <div class="buscar">
+                <input type="text" placeholder="Buscar" required />
+      
+                <div class="btn">
+                  <i class="fas fa-search icon"></i>
+                </div>
+              </div>
+              
+            </div>
+          </header>
+      
+          <!--Barra lateral-->
+          <div class="sidebar" id="sidebar">
+            <nav>
+              <ul>
+                <li>
+                  <a href="home.html" class="selected">
+                    <img src="imagenes/home.svg" class="" alt="" />
+                    <span>Pagina de inicio</span>
+                  </a>
+                </li>
+      
+                <li>
+                  <a href="evaluaciones.html">
+                    <img src="imagenes/quiz-title-svgrepo-com.svg" alt="" />
+                    <span>Evaluaciones</span>
+                  </a>
+                </li>
+      
+                <li>
+                  <a href="">
+                    <img src="imagenes/games-svgrepo-com.svg" alt="" />
+                    <span>Juegos</span>
+                  </a>
+                </li>
+      
+                <li>
+                  <a href="perfilUsuario.html" class="">
+                    <img src="imagenes/profile-round-1342-svgrepo-com.svg" alt="" />
+                    <span>Perfil</span>
+                  </a>
+                </li>
+
+                <li>
+                    <a href="Logros.html" class="">
+                      <img src="imagenes/cup-star-svgrepo-com.svg" alt="" />
+                      <span>Logros</span>
+                    </a>
+                  </li>
+    
+                <li>
+                    <a href="Main.html" class="">
+                      <img src="imagenes/close-ellipse-svgrepo-com.svg" alt="" />
+                      <span>Cerrar sesion</span>
+                    </a>
+                  </li>
+              </ul>
+            </nav>
+          </div>
+      
+          <!--Fin de la barra de navegacion y menu-->
+    
+    <main>
+        <div class="content">
+            <h2>Evaluaciones Disponibles</h2>
+            <div id="evaluaciones-container"></div>
+        </div>
+    </main>
+    <script>
+        const niveles = 6;
+        const evaluacionesPorNivel = 2;
+        const container = document.getElementById("evaluaciones-container");
+
+        for (let nivel = 1; nivel <= niveles; nivel++) {
+            let nivelDiv = document.createElement("div");
+            let titulo = document.createElement("h3");
+            titulo.innerText = `Nivel ${nivel}`;
+            nivelDiv.appendChild(titulo);
+            
+            for (let i = 1; i <= evaluacionesPorNivel; i++) {
+                let evalDiv = document.createElement("div");
+                evalDiv.classList.add("evaluacion");
+                if (nivel > 1) evalDiv.classList.add("disabled");
+
+                evalDiv.innerHTML = `
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR9Psh4BCsBkIELf3SmfJikyEgWeAARxB3Jg&s" alt="Imagen">
+                    <div class="info">
+                        <strong>Evaluación ${String.fromCharCode(64 + (nivel - 1) * evaluacionesPorNivel + i)}</strong><br>
+                        Objetivo de la evaluación<br>
+                        Fecha de realización: 00/00/0000
+                    </div>
+                    <input type="checkbox" class="nivel-${nivel}" ${nivel > 1 ? "disabled" : ""}>
+                `;
+                nivelDiv.appendChild(evalDiv);
+            }
+            container.appendChild(nivelDiv);
+        }
+
+        function unlockNextLevel(nivel) {
+            const checks = document.querySelectorAll(`.nivel-${nivel}`);
+            if (Array.from(checks).every(c => c.checked)) {
+                const nextLevel = document.querySelectorAll(`.nivel-${nivel + 1}`);
+                nextLevel.forEach(cb => {
+                    cb.disabled = false;
+                    cb.parentElement.classList.remove("disabled");
+                });
+            }
+        }
+
+        for (let nivel = 1; nivel < niveles; nivel++) {
+            document.querySelectorAll(`.nivel-${nivel}`).forEach(checkbox => {
+                checkbox.addEventListener("change", () => unlockNextLevel(nivel));
+            });
+        }
+    </script>
+    <script src="JS/menudesplegable.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" ></script>
+</body>
+</html>
