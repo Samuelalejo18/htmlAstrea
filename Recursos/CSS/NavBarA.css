@@ -1,0 +1,91 @@
+/*Links de fuentes exportadas*/
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+/*Especificar colores unicos*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li,a{
+    text-decoration: none;
+}
+
+.header{
+    z-index: 200;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.45rem 2rem 0.45rem 1rem;
+    border-bottom: 1px solid white;
+    position: fixed;
+    background-color:rgba(240, 240, 240, 0.897) ;
+    top: 0;
+    left: 0;
+    box-shadow: 10px 5px 5px rgb(138, 138, 138);
+}
+
+.brand{
+    display: flex;
+}
+
+.brand .logo{
+    margin :0px 10px 5px 0px;
+    width: 60px;
+}
+
+.brand .name{
+    font-family: "Dancing Script", cursive;
+    font-weight: 800;
+    font-size: 2.3rem;
+    margin: 5px 0px 0px 0px;
+}
+
+.left{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+    gap: 0.4rem;
+}
+
+
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    
+}
+
+.right a p{
+    margin: 0px 10px 0px 0px;
+}
+
+.right a{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    align-items: center;
+    border-radius: 0.5rem;
+    transition: 1s ease;
+    color: rgb(54, 54, 54);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.right a:hover{
+    background-color: rgba(83, 85, 243, 0.808);
+    transition: background-color 1s ease;
+    color: rgba(238, 238, 238, 0.973);
+}
+
+.right .img{
+    width: 1.5rem;
+    margin: 0.5rem;
+    
+}

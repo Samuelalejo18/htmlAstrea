@@ -1,0 +1,135 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    transition: width 1s ease;
+    box-sizing: border-box;
+}
+
+/* Inicio de barra lateral desplegada*/
+
+.barra_lateral{
+    width: 280px;
+    height: 100%;
+    padding: 20px 15px;
+    background-color: rgb(255, 255, 255);
+    transition:width 1s ease;
+    overflow: hidden;
+    position: fixed;
+    box-shadow: 2px 2px 2px 2px rgb(214, 214, 214);
+
+
+}
+
+.img_menu img{
+    width: 90px;
+    cursor: pointer;
+    margin-left: -15%;
+}
+
+.nombre_pag{
+    margin: 10px 0px 0px -5px;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.barra_lateral span{
+    font-size:40px;
+    width: 100px;
+    margin-left: 10px;
+    font-family: "Dancing Script", cursive;
+    opacity: 0;
+    transition: opacity 1s ease,width 1s ease;
+}
+
+/* Fin de barra lateral*/
+
+
+/* Inicio de barra lateral reducida*/
+
+.mini_barra{
+    width: 90px;
+    box-shadow: 2px 2px 2px 2px rgb(214, 214, 214);
+    transition: 1s ease;
+}
+
+.barra_lateral span.ocultar{
+    opacity: 1;
+    transition: width 1s ease;
+    
+}
+
+
+/* Fin de barra lateral reducida*/
+
+/* Inicio estilos de los botones*/
+
+.barra_lateral .boton{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    margin:50px 0px 0px 0px;
+    background-color: rgba(0, 0, 0, 0.925);
+    cursor: pointer;
+}
+
+.barra_lateral .boton i{
+    font-size: 30px;
+    font-weight: 25px;
+    margin: 10px -20px 15px 12px;
+    color: white;
+}
+
+.barra_lateral .boton span{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    transition: width 1s ease;
+    color: white;
+}
+
+.barra_lateral .navegacion li{
+    list-style: none;
+    display: flex;
+    margin-bottom: 5px;
+    margin: 20px 0px 0px 0px;
+}
+
+
+.barra_lateral .navegacion a{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    color: rgb(153, 153, 153);
+}
+.barra_lateral .navegacion span{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    width: 100%;
+    margin: -10px;
+    font-weight: 500;
+    transition: 1s ease;
+}
+
+.barra_lateral .navegacion li a i{
+    min-width: 50px;
+    font-size: 40px;
+    margin: 10px;
+}
+
+.barra_lateral .navegacion li:hover{
+    background-color: rgb(216, 216, 216);
+    border-radius: 5px;
+    transition: 1s ease;
+}
+
+/* Fin de los botones*/
