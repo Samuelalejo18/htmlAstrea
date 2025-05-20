@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Astrea</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monocoque:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/juegosInt.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <h1>Astrea</h1>
+
+      <div id="clueContainer">
+        Pista: <span id="clueText">Aqui aparecera la pista</span>
+      </div>
+
+      <div id="categoryContainer">Categoria: <span id="catName"></span></div>
+      <div id="wordDisplay"></div>
+      <div id="keyboard"></div>
+      <div id="status"></div>
+
+      <div id="bottomStats">
+        <div id="errorsContainer">Errores: <span id="errors">0</span>/6</div>
+        <div id="scoreContainer">Puntaje: <span id="scoreValue">0</span></div>
+      </div>
+
+      <button id="restart" onclick="startGame()">Reiniciar Juego</button>
+    </div>
+
+    <script>
+      const categories = {
+        Ciberseguridad: [
+          { word: "contrasena", clue: "Es la clave para proteger tu cuenta" },
+          { word: "phishing", clue: "Intento de engañar para robar datos" },
+          { word: "malware", clue: "Software malicioso" },
+          { word: "antivirus", clue: "Programa que protege contra virus" },
+          { word: "firewall", clue: "Cortafuegos digital" },
+          { word: "spam", clue: "Correo no deseado" },
+          { word: "cifrado", clue: "Codificar informacion" },
+          { word: "hacker", clue: "Acceso sin permiso" },
+          { word: "suplantacion", clue: "Fingir ser otro" },
+          { word: "robo", clue: "Tomar sin permiso" },
+          { word: "privacidad", clue: "Informacion confidencial" },
+          { word: "red", clue: "Conjunto de nodos" },
+          { word: "seguridad", clue: "Proteccion ante amenazas" },
+          { word: "autenticacion", clue: "Verificar identidad" },
+          { word: "vpn", clue: "Red privada virtual" },
+          { word: "clave", clue: "Codigo secreto" },
+          { word: "datos", clue: "Informacion digital" },
+          { word: "fraude", clue: "Engano con beneficio" },
+          { word: "secreto", clue: "Informacion oculta" },
+          { word: "criptografia", clue: "Estudio de codigos" },
+          { word: "alerta", clue: "Aviso de peligro" },
+          { word: "vulnerabilidad", clue: "Punto debil" },
+          { word: "bloqueo", clue: "Impedir acceso" },
+          { word: "correo", clue: "Mensaje electronico" },
+        ],
+        "Componentes del Computador": [
+          { word: "procesador", clue: "El cerebro del PC" },
+          { word: "memoria", clue: "Almacenamiento temporal" },
+          { word: "monitor", clue: "Pantalla de salida" },
+          { word: "teclado", clue: "Dispositivo de escritura" },
+          { word: "mouse", clue: "Dispositivo apuntador" },
+          { word: "tarjeta", clue: "Componente expandible" },
+          { word: "disco", clue: "Almacenamiento permanente" },
+          { word: "placa", clue: "Circuito principal" },
+          { word: "fuente", clue: "Suministro de energia" },
+          { word: "bocinas", clue: "Salida de audio" },
+          { word: "usb", clue: "Puerto universal" },
+          { word: "chip", clue: "Circuito integrado" },
+          { word: "ventilador", clue: "Refrigeracion" },
+          { word: "bios", clue: "Firmware del sistema" },
+          { word: "ram", clue: "Memoria de acceso aleatorio" },
+          { word: "gpu", clue: "Procesador grafico" },
+          { word: "ssd", clue: "Unidad de estado solido" },
+          { word: "hdd", clue: "Disco duro mecanico" },
+          { word: "monitor", clue: "Dispositivo visual" },
+          { word: "webcam", clue: "Camara para video" },
+          { word: "microfono", clue: "Entrada de audio" },
+          { word: "router", clue: "Dispositivo de red" },
+          { word: "teclado", clue: "Entrada de texto" },
+          { word: "mousepad", clue: "Superficie para mouse" },
+        ],
+      };
+
+      let selectedCategory = null;
+      let selectedWord = "";
+      let clue = "";
+      let guessedLetters = new Set();
+      let errors = 0;
+      let maxErrors = 6;
+      let score = 100;
+      const wordDisplay = document.getElementById("wordDisplay");
+      const clueText = document.getElementById("clueText");
+      const catName = document.getElementById("catName");
+      const keyboard = document.getElementById("keyboard");
+      const status = document.getElementById("status");
+      const errorsSpan = document.getElementById("errors");
+      const scoreValue = document.getElementById("scoreValue");
+
+      function pickWord() {
+        const keys = Object.keys(categories);
+        selectedCategory = keys[Math.floor(Math.random() * keys.length)];
+        const words = categories[selectedCategory];
+        const selection = words[Math.floor(Math.random() * words.length)];
+        selectedWord = selection.word.toLowerCase();
+        clue = selection.clue;
+      }
+
+      function displayWord() {
+        let display = "";
+        for (let ch of selectedWord) {
+          if (ch === " ") {
+            display += "  ";
+          } else if (guessedLetters.has(ch)) {
+            display += ch.toUpperCase() + " ";
+          } else {
+            display += "_ ";
+          }
+        }
+        wordDisplay.textContent = display.trim();
+      }
+
+      function createKeyboard() {
+        keyboard.innerHTML = "";
+        for (let i = 65; i <= 90; i++) {
+          const letter = String.fromCharCode(i).toLowerCase();
+          const btn = document.createElement("button");
+          btn.textContent = letter.toUpperCase();
+          btn.onclick = () => guessLetter(letter, btn);
+          keyboard.appendChild(btn);
+        }
+      }
+
+      function guessLetter(letter, button) {
+        button.disabled = true;
+        if (selectedWord.includes(letter)) {
+          guessedLetters.add(letter);
+          displayWord();
+          status.textContent = "¡Bien! Letra correcta.";
+          status.style.color = "green";
+          scoreValue.textContent = score;
+
+          if (isWordComplete()) {
+            status.textContent = "¡Ganaste! Has adivinado la palabra.";
+            disableKeyboard();
+
+            setTimeout(() => {
+              startGame();
+            }, 1000);
+          }
+        } else {
+          errors++;
+          errorsSpan.textContent = errors;
+          score -= 10;
+          scoreValue.textContent = score;
+          status.textContent = "Letra incorrecta, intenta de nuevo.";
+          status.style.color = "red";
+
+          if (errors >= maxErrors || score <= 0) {
+            score = 0;
+            scoreValue.textContent = score;
+            status.textContent =
+              "Juego terminado. La palabra era: " + selectedWord.toUpperCase();
+            displayWord();
+            disableKeyboard();
+
+            setTimeout(() => {
+              startGame();
+              score = 100;
+              scoreValue.textContent = score;
+            }, 2000);
+          }
+        }
+      }
+
+      function isWordComplete() {
+        for (let ch of selectedWord) {
+          if (ch !== " " && !guessedLetters.has(ch)) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function disableKeyboard() {
+        const buttons = keyboard.querySelectorAll("button");
+        buttons.forEach((btn) => (btn.disabled = true));
+      }
+
+      function startGame() {
+        errors = 0;
+        guessedLetters.clear();
+        errorsSpan.textContent = errors;
+        status.textContent = "";
+        pickWord();
+        catName.textContent = selectedCategory;
+        clueText.textContent = clue;
+        createKeyboard();
+        displayWord();
+      }
+
+      startGame();
+    </script>
+  </body>
+</html>
